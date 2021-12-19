@@ -12,11 +12,9 @@ export const getItem = async (id) => {
 
 export const getItems = async (ids, setItems) => {
   //記事を引数のidすべて持ってくる
-  const items = await ids.map(async (id) => {
+  return await ids.map(async (id) => {
     return await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
       .then((response) => response.json())
       .then((json) => json);
   });
-  console.log(items);
-  return items;
 };
