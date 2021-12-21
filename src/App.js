@@ -6,28 +6,49 @@ import { getTopStories } from "./API/stories.js";
 function App() {
   const [stories, setStories] = useState([]);
   const [test, setTest] = useState([]);
+  const [error, onError] = useState(false);
 
   useEffect(() => {
-    getTopStories().then((json) => setStories(json));
+    getTopStories().then((json) => {
+      if (Array.isArray(json)) {
+        setStories(json);
+      } else {
+        onError(true);
+      }
+    });
   }, []);
 
   useEffect(() => {
     getItems(stories).then((json) => {
-      Promise.all(json).then((values) => {
-        setTest(values);
-      });
+      Promise.all(json)
+        .then((values) => {
+          setTest(values);
+        })
+        .catch((e) => {
+          onError(true);
+        });
     });
   }, [stories]);
 
   return (
     <div className="App">
-      {test.map((element) => (
+      {error ? (
+        <div>エラーが発生しました。</div>
+      ) : (
         <div>
-          <a href={element.url} key={element.id}>
-            {element.title}
-          </a>
+          {stories.length > 0 ? (
+            test.map((element) => (
+              <div>
+                <a href={element.url} key={element.id}>
+                  {element.title}
+                </a>
+              </div>
+            ))
+          ) : (
+            <div>loading...</div>
+          )}
         </div>
-      ))}
+      )}
     </div>
   );
 }

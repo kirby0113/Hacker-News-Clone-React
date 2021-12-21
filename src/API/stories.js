@@ -13,6 +13,6 @@ export const getTopStories = async () => {
       return json;
     })
     .catch((error) => {
-      return [{}];
+      return new Error("can`t get stories.");
     });
 };
