@@ -1,5 +1,5 @@
-export const getTopStories = (setStories) => {
-  return fetch("https://hacker-news.firebaseio.com/v0/topstories.json")
+export const getTopStories = async () => {
+  return await fetch("https://hacker-news.firebaseio.com/v0/topstories.json")
     .then((response) => {
       if (!response.ok) {
         console.error("response.ok:", response.ok);
@@ -10,9 +10,9 @@ export const getTopStories = (setStories) => {
       return response.json();
     })
     .then((json) => {
-      setStories(json);
+      return json;
     })
     .catch((error) => {
-      setStories(false);
+      return [{}];
     });
 };
