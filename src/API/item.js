@@ -10,7 +10,7 @@ export const getItem = async (id) => {
   return item;
 };
 
-export const getItems = async (ids, setItems) => {
+export const getItems = async (ids) => {
   //記事を引数のidすべて持ってくる
   return await ids.map(async (id) => {
     return await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)

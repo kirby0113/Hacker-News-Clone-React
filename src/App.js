@@ -7,6 +7,7 @@ function App() {
   const [stories, setStories] = useState([]);
   const [test, setTest] = useState([]);
   const [error, onError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     getTopStories().then((json) => {
@@ -14,6 +15,7 @@ function App() {
         setStories(json);
       } else {
         onError(true);
+        setErrorMessage("NetworkError: can`t get news...");
       }
     });
   }, []);
@@ -26,6 +28,7 @@ function App() {
         })
         .catch((e) => {
           onError(true);
+          setErrorMessage("NetworkError: can`t get news...");
         });
     });
   }, [stories]);
@@ -33,7 +36,10 @@ function App() {
   return (
     <div className="App">
       {error ? (
-        <div>エラーが発生しました。</div>
+        <div>
+          <div>エラーが発生しました。</div>
+          <div>{errorMessage}</div>
+        </div>
       ) : (
         <div>
           {stories.length > 0 ? (
