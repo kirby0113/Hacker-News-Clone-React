@@ -9,6 +9,16 @@ const StyledHeader = styled.div`
   grid-template-columns: max-content 1fr;
   grid-template-rows: max-content;
   align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+  }
 `;
 
 const HeaderTitle = styled.div`
@@ -20,6 +30,15 @@ const HeaderTitle = styled.div`
   grid-template-rows: repeat(2, max-content);
   justify-items: center;
   font-family: "Merriweather", serif;
+
+  @media (max-width: 900px) {
+    font-size: 2.5rem;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+  }
 `;
 
 const HeaderLinks = styled.div`
@@ -30,6 +49,11 @@ const HeaderLinks = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   font-family: raleway;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 70px);
+  }
 `;
 
 const StyledLink = styled.div`
@@ -63,6 +87,9 @@ const StyledLink = styled.div`
       `;
     }
   }}
+
+  @media (max-width: 700px) {
+  }
 `;
 
 const LinkText = styled.span`
