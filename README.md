@@ -8,4 +8,5 @@ HackerNewsAPI を利用したクローンアプリです。
 - React
 - react-router-dom
 - Storybook
-- styled-components
+- CSS in JS (styled-components)
+- hygen
