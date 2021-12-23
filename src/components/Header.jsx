@@ -13,21 +13,22 @@ const StyledHeader = styled.div`
 const HeaderTitle = styled.div`
   padding: 10px;
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 900;
   display: grid;
   grid-template-columns: max-content;
   grid-template-rows: repeat(2, max-content);
   justify-items: center;
-  font-family: roboto sans-serif;
+  font-family: "Merriweather", serif;
 `;
 
 const HeaderLinks = styled.div`
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
-  font-family: roboto sans-serif;
+  font-family: raleway;
 `;
 
 const StyledLink = styled.div``;
