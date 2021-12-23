@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledHeader = styled.div`
   background-color: #efebe9;
@@ -34,13 +34,25 @@ const HeaderLinks = styled.div`
 
 const StyledLink = styled.div`
   position: relative;
-  background-color: inherit;
   height: 100%;
-  transition: background-color 0.5s, color 0.3s;
-  &: hover {
-    background-color: #222222;
-    color: #eeeeee;
-  }
+  ${(props) => {
+    if (props.isActive) {
+      return css`
+        background-color: #222222;
+        color: #eeeeee;
+      `;
+    } else {
+      return css`
+        cursor: pointer;
+        background-color: inherit;
+        transition: background-color 0.5s, color 0.3s;
+        &: hover {
+          background-color: #222222;
+          color: #eeeeee;
+        }
+      `;
+    }
+  }}
 `;
 
 const LinkText = styled.span`
@@ -50,7 +62,10 @@ const LinkText = styled.span`
   transform: translate(-50%, -50%);
 `;
 
-export const Header = ({ onChangeMode }) => {
+export const Header = ({ onChangeMode, mode }) => {
+  const setModeStyle = (checker) => {
+    return checker === mode;
+  };
   return (
     <StyledHeader>
       <HeaderTitle>
@@ -58,22 +73,40 @@ export const Header = ({ onChangeMode }) => {
         <span>News</span>
       </HeaderTitle>
       <HeaderLinks>
-        <StyledLink onClick={() => onChangeMode("top")}>
+        <StyledLink
+          onClick={() => onChangeMode("top")}
+          isActive={setModeStyle("top")}
+        >
           <LinkText>Top</LinkText>
         </StyledLink>
-        <StyledLink onClick={() => onChangeMode("new")}>
+        <StyledLink
+          onClick={() => onChangeMode("new")}
+          isActive={setModeStyle("new")}
+        >
           <LinkText>New</LinkText>
         </StyledLink>
-        <StyledLink onClick={() => onChangeMode("best")}>
+        <StyledLink
+          onClick={() => onChangeMode("best")}
+          isActive={setModeStyle("best")}
+        >
           <LinkText>Best</LinkText>
         </StyledLink>
-        <StyledLink onClick={() => onChangeMode("ask")}>
+        <StyledLink
+          onClick={() => onChangeMode("ask")}
+          isActive={setModeStyle("ask")}
+        >
           <LinkText>Ask</LinkText>
         </StyledLink>
-        <StyledLink onClick={() => onChangeMode("show")}>
+        <StyledLink
+          onClick={() => onChangeMode("show")}
+          isActive={setModeStyle("show")}
+        >
           <LinkText>Show</LinkText>
         </StyledLink>
-        <StyledLink onClick={() => onChangeMode("job")}>
+        <StyledLink
+          onClick={() => onChangeMode("job")}
+          isActive={setModeStyle("job")}
+        >
           <LinkText>Jobs</LinkText>
         </StyledLink>
       </HeaderLinks>
@@ -83,4 +116,5 @@ export const Header = ({ onChangeMode }) => {
 
 Header.propTypes = {
   onChangeMode: PropTypes.func,
+  mode: PropTypes.string,
 };
