@@ -7,6 +7,7 @@ const StyledHeader = styled.div`
   color: #37474f;
   display: grid;
   grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content;
   align-items: center;
 `;
 
@@ -22,16 +23,32 @@ const HeaderTitle = styled.div`
 `;
 
 const HeaderLinks = styled.div`
-  padding: 10px;
-  font-size: 1.4rem;
+  background-color: inherit;
+  height: 100%;
+  font-size: 1.7rem;
   letter-spacing: 2px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  justify-items: center;
   font-family: raleway;
 `;
 
-const StyledLink = styled.div``;
+const StyledLink = styled.div`
+  position: relative;
+  background-color: inherit;
+  height: 100%;
+  transition: background-color 0.5s, color 0.3s;
+  &: hover {
+    background-color: #222222;
+    color: #eeeeee;
+  }
+`;
+
+const LinkText = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 export const Header = ({ onChangeMode }) => {
   return (
@@ -41,12 +58,24 @@ export const Header = ({ onChangeMode }) => {
         <span>News</span>
       </HeaderTitle>
       <HeaderLinks>
-        <StyledLink onClick={() => onChangeMode("top")}>Top</StyledLink>
-        <StyledLink onClick={() => onChangeMode("new")}>New</StyledLink>
-        <StyledLink onClick={() => onChangeMode("best")}>Best</StyledLink>
-        <StyledLink onClick={() => onChangeMode("ask")}>Ask</StyledLink>
-        <StyledLink onClick={() => onChangeMode("show")}>Show</StyledLink>
-        <StyledLink onClick={() => onChangeMode("job")}>Jobs</StyledLink>
+        <StyledLink onClick={() => onChangeMode("top")}>
+          <LinkText>Top</LinkText>
+        </StyledLink>
+        <StyledLink onClick={() => onChangeMode("new")}>
+          <LinkText>New</LinkText>
+        </StyledLink>
+        <StyledLink onClick={() => onChangeMode("best")}>
+          <LinkText>Best</LinkText>
+        </StyledLink>
+        <StyledLink onClick={() => onChangeMode("ask")}>
+          <LinkText>Ask</LinkText>
+        </StyledLink>
+        <StyledLink onClick={() => onChangeMode("show")}>
+          <LinkText>Show</LinkText>
+        </StyledLink>
+        <StyledLink onClick={() => onChangeMode("job")}>
+          <LinkText>Jobs</LinkText>
+        </StyledLink>
       </HeaderLinks>
     </StyledHeader>
   );
