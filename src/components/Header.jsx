@@ -40,6 +40,16 @@ const StyledLink = styled.div`
       return css`
         background-color: #222222;
         color: #eeeeee;
+        &::before {
+          content: "\f0da";
+          font-weight: 900;
+          font-family: "Font Awesome 5 Free";
+          color: #eeeeee;
+          position: absolute;
+          top: 51%;
+          left: 10%;
+          transform: translateY(-50%);
+        }
       `;
     } else {
       return css`
