@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
+import { FontFamily } from "../constants/Font";
+
 const StyledHeader = styled.div`
   background-color: #efebe9;
   color: #37474f;
@@ -29,7 +31,7 @@ const HeaderTitle = styled.div`
   grid-template-columns: max-content;
   grid-template-rows: repeat(2, max-content);
   justify-items: center;
-  font-family: "Merriweather", serif;
+  font-family: ${FontFamily["Logo"]}, serif;
 
   @media (max-width: 900px) {
     font-size: 2.5rem;
@@ -48,7 +50,7 @@ const HeaderLinks = styled.div`
   letter-spacing: 2px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  font-family: raleway;
+  font-family: ${FontFamily["Primary"]}, serif;
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(3, 1fr);
