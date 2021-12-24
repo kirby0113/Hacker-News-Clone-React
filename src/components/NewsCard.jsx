@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { FontFamily } from "../constants/Font";
+import { FontFamily, FontSize } from "../constants/Font";
 
 const StyledNewsCard = styled.div`
   display: grid;
@@ -25,14 +25,14 @@ const NewsCardScore = styled.div`
 const ScoreTextTop = styled.span`
   font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: ${FontSize["xLarge"]};
   letter-spacing: 1.5px;
 `;
 
 const ScoreTextBottom = styled.span`
   font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: ${FontSize["small"]};
   letter-spacing: 3px;
   padding-bottom: 13px;
 `;
@@ -47,7 +47,7 @@ const NewsCardDetail = styled.div`
 const NewsCardTitle = styled.span`
   font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: ${FontSize["medium"]};
   letter-spacing: 2px;
   color: #ff5722;
 `;
@@ -57,7 +57,7 @@ const NewsCardLink = styled.a`
   font-family: ${FontFamily["Primary"]}, serif;
   color: #666666;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: ${FontSize["xSmall"]};
   text-decoration: none;
 `;
 
@@ -72,17 +72,17 @@ const NewsCardDetailBottom = styled.div`
 const NewsCardAuthor = styled.span`
   font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: ${FontSize["xSmall"]};
 `;
 
 const NewsCardComment = styled.span`
   font-family: ${FontFamily["Secondary"]}, sans-serif;
-  font-size: 1rem;
+  font-size: ${FontSize["xSmall"]};
 `;
 
 const NewsCardDate = styled.span`
   font-family: ${FontFamily["Secondary"]}, , sans-serif;
-  font-size: 1rem;
+  font-size: ${FontSize["xSmall"]};
 `;
 
 export const NewsCard = ({ NewsData }) => {
