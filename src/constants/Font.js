@@ -2,6 +2,7 @@ export const FontFamily = {
   Logo: "Merriweather",
   Primary: "Raleway",
   Secondary: "Open Sans",
+  Icon: "Font Awesome 5 Free",
 };
 
 export const FontSize = {
