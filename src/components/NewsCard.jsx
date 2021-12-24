@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { FontFamily } from "../constants/Font";
+
 const StyledNewsCard = styled.div`
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -21,14 +23,14 @@ const NewsCardScore = styled.div`
 `;
 
 const ScoreTextTop = styled.span`
-  font-family: "Raleway", serif;
+  font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 700;
   font-size: 3rem;
   letter-spacing: 1.5px;
 `;
 
 const ScoreTextBottom = styled.span`
-  font-family: "Raleway", serif;
+  font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 500;
   font-size: 1.3rem;
   letter-spacing: 3px;
@@ -43,7 +45,7 @@ const NewsCardDetail = styled.div`
 `;
 
 const NewsCardTitle = styled.span`
-  font-family: "Raleway", serif;
+  font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 500;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -52,7 +54,7 @@ const NewsCardTitle = styled.span`
 
 const NewsCardLink = styled.a`
   margin-top: 2px;
-  font-family: "Raleway", serif;
+  font-family: ${FontFamily["Primary"]}, serif;
   color: #666666;
   font-weight: 500;
   font-size: 1rem;
@@ -68,18 +70,18 @@ const NewsCardDetailBottom = styled.div`
 `;
 
 const NewsCardAuthor = styled.span`
-  font-family: "Raleway", serif;
+  font-family: ${FontFamily["Primary"]}, serif;
   font-weight: 400;
   font-size: 1.2rem;
 `;
 
 const NewsCardComment = styled.span`
-  font-family: "Open Sans", sans-serif;
+  font-family: ${FontFamily["Secondary"]}, sans-serif;
   font-size: 1rem;
 `;
 
 const NewsCardDate = styled.span`
-  font-family: "Open Sans", sans-serif;
+  font-family: ${FontFamily["Secondary"]}, , sans-serif;
   font-size: 1rem;
 `;
 
