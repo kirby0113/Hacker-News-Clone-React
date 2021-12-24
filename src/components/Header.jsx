@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 import { FontFamily, FontSize } from "../constants/Font";
+import { Color } from "../constants/Color";
 
 const StyledHeader = styled.div`
-  background-color: #efebe9;
-  color: #37474f;
+  background-color: ${Color["lightgrey"]};
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: max-content;
@@ -32,7 +32,7 @@ const HeaderTitle = styled.div`
   grid-template-rows: repeat(2, max-content);
   justify-items: center;
   font-family: ${FontFamily["Logo"]}, serif;
-
+  color: ${Color["logo"]};
   @media (max-width: 900px) {
     font-size: ${FontSize["large"]};
     grid-template-columns: repeat(2, max-content);
@@ -64,13 +64,13 @@ const StyledLink = styled.div`
   ${(props) => {
     if (props.isActive) {
       return css`
-        background-color: #222222;
-        color: #eeeeee;
+        background-color: ${Color["black"]};
+        color: ${Color["white"]};
         &::before {
           content: "\f0da";
           font-weight: 900;
-          font-family: ${FontFamily["Icon"]};
-          color: #eeeeee;
+          font-family: "Font Awesome 5 Free";
+          color: ${Color["white"]};
           position: absolute;
           top: 51%;
           left: 10%;
@@ -80,11 +80,12 @@ const StyledLink = styled.div`
     } else {
       return css`
         cursor: pointer;
+        color: ${Color["black"]};
         background-color: inherit;
         transition: background-color 0.5s, color 0.3s;
         &: hover {
-          background-color: #222222;
-          color: #eeeeee;
+          background-color: ${Color["black"]};
+          color: ${Color["white"]};
         }
       `;
     }
