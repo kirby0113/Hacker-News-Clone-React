@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import { FontFamily } from "../constants/Font";
+import { FontFamily, FontSize } from "../constants/Font";
 
 const StyledHeader = styled.div`
   background-color: #efebe9;
@@ -25,7 +25,7 @@ const StyledHeader = styled.div`
 
 const HeaderTitle = styled.div`
   padding: 10px;
-  font-size: 1.6rem;
+  font-size: ${FontSize["Logo"]};
   font-weight: 900;
   display: grid;
   grid-template-columns: max-content;
@@ -34,7 +34,7 @@ const HeaderTitle = styled.div`
   font-family: ${FontFamily["Logo"]}, serif;
 
   @media (max-width: 900px) {
-    font-size: 2.5rem;
+    font-size: ${FontSize["large"]};
     grid-template-columns: repeat(2, max-content);
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
@@ -46,7 +46,7 @@ const HeaderTitle = styled.div`
 const HeaderLinks = styled.div`
   background-color: inherit;
   height: 100%;
-  font-size: 1.7rem;
+  font-size: ${FontSize["medium"]};
   letter-spacing: 2px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -69,7 +69,7 @@ const StyledLink = styled.div`
         &::before {
           content: "\f0da";
           font-weight: 900;
-          font-family: "Font Awesome 5 Free";
+          font-family: ${FontFamily["Icon"]};
           color: #eeeeee;
           position: absolute;
           top: 51%;
