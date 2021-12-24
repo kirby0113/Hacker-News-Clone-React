@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
+import { FontFamily, FontSize } from "../constants/Font";
+import { Color } from "../constants/Color";
+
 const StyledHeader = styled.div`
-  background-color: #efebe9;
-  color: #37474f;
+  background-color: ${Color["lightgrey"]};
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: max-content;
@@ -23,16 +25,16 @@ const StyledHeader = styled.div`
 
 const HeaderTitle = styled.div`
   padding: 10px;
-  font-size: 1.6rem;
+  font-size: ${FontSize["Logo"]};
   font-weight: 900;
   display: grid;
   grid-template-columns: max-content;
   grid-template-rows: repeat(2, max-content);
   justify-items: center;
-  font-family: "Merriweather", serif;
-
+  font-family: ${FontFamily["Logo"]}, serif;
+  color: ${Color["logo"]};
   @media (max-width: 900px) {
-    font-size: 2.5rem;
+    font-size: ${FontSize["large"]};
     grid-template-columns: repeat(2, max-content);
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
@@ -44,11 +46,11 @@ const HeaderTitle = styled.div`
 const HeaderLinks = styled.div`
   background-color: inherit;
   height: 100%;
-  font-size: 1.7rem;
+  font-size: ${FontSize["medium"]};
   letter-spacing: 2px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  font-family: raleway;
+  font-family: ${FontFamily["Primary"]}, serif;
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(3, 1fr);
@@ -62,13 +64,13 @@ const StyledLink = styled.div`
   ${(props) => {
     if (props.isActive) {
       return css`
-        background-color: #222222;
-        color: #eeeeee;
+        background-color: ${Color["black"]};
+        color: ${Color["white"]};
         &::before {
           content: "\f0da";
           font-weight: 900;
           font-family: "Font Awesome 5 Free";
-          color: #eeeeee;
+          color: ${Color["white"]};
           position: absolute;
           top: 51%;
           left: 10%;
@@ -78,11 +80,12 @@ const StyledLink = styled.div`
     } else {
       return css`
         cursor: pointer;
+        color: ${Color["black"]};
         background-color: inherit;
         transition: background-color 0.5s, color 0.3s;
         &: hover {
-          background-color: #222222;
-          color: #eeeeee;
+          background-color: ${Color["black"]};
+          color: ${Color["white"]};
         }
       `;
     }
