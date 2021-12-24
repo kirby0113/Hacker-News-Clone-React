@@ -11,4 +11,5 @@ export const FontSize = {
   medium: "2rem",
   large: "2.5rem",
   xLarge: "3rem",
+  Logo: "1.7rem",
 };
