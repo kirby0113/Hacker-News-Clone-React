@@ -1,7 +1,21 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 import { getItem, getItems } from "./API/item.js";
 import { getTopStories } from "./API/stories.js";
+import { Header } from "./components/Header";
+import { NewsCard } from "./components/NewsCard";
+
+const NewsCardGrid = styled.div`
+  margin-top: 20px;
+  position: relative;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  grid-column-gap: 20px;
+  justify-content: center;
+  grid-row-gap: 30px;
+`;
 
 function App() {
   const [stories, setStories] = useState([]);
@@ -35,25 +49,20 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       {error ? (
         <div>
           <div>エラーが発生しました。</div>
           <div>{errorMessage}</div>
         </div>
+      ) : stories.length > 0 ? (
+        <NewsCardGrid>
+          {test.map((element) => (
+            <NewsCard NewsData={element} />
+          ))}
+        </NewsCardGrid>
       ) : (
-        <div>
-          {stories.length > 0 ? (
-            test.map((element) => (
-              <div>
-                <a href={element.url} key={element.id}>
-                  {element.title}
-                </a>
-              </div>
-            ))
-          ) : (
-            <div>loading...</div>
-          )}
-        </div>
+        <div>loading...</div>
       )}
     </div>
   );
