@@ -6,6 +6,7 @@ import { FontFamily, FontSize } from "../constants/Font";
 import { Color } from "../constants/Color";
 
 const StyledNewsCard = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: max-content 1fr;
   border: solid 2px ${Color["black"]};
